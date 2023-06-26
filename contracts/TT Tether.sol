@@ -77,8 +77,8 @@ contract Ownable {
  */
 contract ERC20Basic {
     uint public _totalSupply;
-    function totalSupply() public constant returns (uint);
-    function balanceOf(address who) public constant returns (uint);
+    function totalSupply() public view virtual override returns (uint);
+    function balanceOf(address who) public view virtual override returns (uint);
     function transfer(address to, uint value) public;
     event Transfer(address indexed from, address indexed to, uint value);
 }
@@ -88,7 +88,7 @@ contract ERC20Basic {
  * @dev see https://github.com/ethereum/EIPs/issues/20
  */
 contract ERC20 is ERC20Basic {
-    function allowance(address owner, address spender) public constant returns (uint);
+    function allowance(address owner, address spender) public view returns (uint);
     function transferFrom(address from, address to, uint value) public;
     function approve(address spender, uint value) public;
     event Approval(address indexed owner, address indexed spender, uint value);
